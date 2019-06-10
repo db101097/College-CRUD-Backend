@@ -7,7 +7,7 @@ const http = require('https');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('postgres://itkgqfhz:WZpooC7Jtjr7EdQ1a-2OhxvwWWdH0lZt@raja.db.elephantsql.com:5432/itkgqfhz');
 const url = require('url');
-const port = 3000;
+const port = 7000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
