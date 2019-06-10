@@ -59,9 +59,9 @@ module.exports = function(app,College,Student) {
 
 		app.post('/addStudents',(req,res) => {
 				let args=req.body;
-				Student.create({firstname:args.firstname,
-								 lastname:args.lastname,
-								 image_path:args.image,
+				Student.create({firstname:args.firstName,
+								 lastname:args.lastName,
+								 image_path:args.url,
 								 email:args.email,
 								 gpa:args.gpa,
 								 collegeId:args.collegeId})
