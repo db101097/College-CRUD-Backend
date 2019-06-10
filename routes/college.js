@@ -1,7 +1,7 @@
 module.exports = function(app,College,Student) {
 
 /*
-		This route will take no query string params it will 
+		This route will take no query string params it will
 		simply return all the colleges in the database
 		currently.The response is an array of all the college objects.
 */
@@ -14,20 +14,20 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});		
+					});
 		});
 
 
 
 /*
-		This route will take a the college id as the 
+		This route will take a the college id as the
 		request param. Then it will use the college
 		model to query the database for a single college
 		of that id using the findOne method. It will find
 		one college where the id matches and include an array
-		of all students attending that college using the id 
-		as a foreign key to relate the two models together 
-		
+		of all students attending that college using the id
+		as a foreign key to relate the two models together
+
 		response:
 		{
 			"id": id of college,
@@ -58,7 +58,7 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});			
+					});
 		});
 
 
@@ -80,10 +80,12 @@ module.exports = function(app,College,Student) {
 */
 		app.post('/addCollege',(req,res) => {
 				let args=req.body;
-				College.create({name:args.nameOf,
-								image_path:args.image,
-								address:args.address,
-								description:args.description})
+				console.log(args);
+				College.create({name:args.name,
+								image_path:args.url,
+								address:args.location,
+								description:args.description,
+								population:args.population})
 					.then((result)=>{
 						console.log(result)
 						res.status(200).send(result)
@@ -96,7 +98,7 @@ module.exports = function(app,College,Student) {
 
 
 /*
-		This route will take a the college id as the 
+		This route will take a the college id as the
 		request param.It will also take a JSON body consisting of
 
 		{
@@ -106,12 +108,12 @@ module.exports = function(app,College,Student) {
 			newDescription:'A updated description of the college'
 		}
 
-		Then it will use the collegemodel to query the database 
-		for a single college of that id using the findOne method. 
+		Then it will use the collegemodel to query the database
+		for a single college of that id using the findOne method.
 		It will find one college where the id matches.Once the result
 		is found then the update method can be used to update the row.
 		If this operation is successfull then a 200 reponse and success
-		message is sent back.Otherwise a 400 response and a failure 
+		message is sent back.Otherwise a 400 response and a failure
 		message is sent back.
 */
 		app.put('/college/:collegeID',(req,res) => {
@@ -131,17 +133,17 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});	
-		});	
+					});
+		});
 
 
 /*
-		This route will take a the college id as the 
-		request param.Then it will use the college model 
-		to query the database for a single college of that 
-		id using the findOne method. It will find one college 
-		where the id matches.Once the result is found then the 
-		destroy method can be used to delete the row.If this operation 
+		This route will take a the college id as the
+		request param.Then it will use the college model
+		to query the database for a single college of that
+		id using the findOne method. It will find one college
+		where the id matches.Once the result is found then the
+		destroy method can be used to delete the row.If this operation
 		is successfull then a 200 reponse and success message is sent back.
 		Otherwise a 400 response and a failure message is sent back.
 */
@@ -157,7 +159,7 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});	
+					});
 		});
-	
+
 }

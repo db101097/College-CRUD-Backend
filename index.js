@@ -49,7 +49,12 @@ College.init({
 	description:{
 		type:Sequelize.TEXT,
 		allowNull:false
-	}
+	},
+
+  population: {
+    type:Sequelize.INTEGER,
+    allowNull:false
+  }
 
 },
 	{sequelize,modelName: 'college',timestamps: false}

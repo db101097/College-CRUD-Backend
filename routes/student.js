@@ -1,7 +1,7 @@
 module.exports = function(app,College,Student) {
 
 /*
-		This route will take a the student id as the 
+		This route will take a the student id as the
 		request param. Then it will use the student
 		model to query the database for a single student
 		of that id using the findOne method. It will find
@@ -37,7 +37,7 @@ module.exports = function(app,College,Student) {
 					})
 					.catch((err)=>{
 						res.status(400).send(err);
-					});			
+					});
 		});
 
 /*
@@ -75,7 +75,7 @@ module.exports = function(app,College,Student) {
 
 
 /*
-		This route will take a the student id as the 
+		This route will take a the student id as the
 		request param.It will also take a JSON body consisting of
 
 		{
@@ -85,12 +85,12 @@ module.exports = function(app,College,Student) {
 			newDescription:'A updated description of the college'
 		}
 
-		Then it will use the student model to query the database 
-		for a single student of that id using the findOne method. 
+		Then it will use the student model to query the database
+		for a single student of that id using the findOne method.
 		It will find one student where the id matches.Once the result
 		is found then the update method can be used to update each column.
 		If this operation is successful then a 200 reponse and success
-		message is sent back.Otherwise a 400 response and a failure 
+		message is sent back.Otherwise a 400 response and a failure
 		message is sent back.
 */
 		app.put('/students/:studentsID',(req,res) => {
@@ -113,16 +113,16 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});	
-		});	
+					});
+		});
 
 /*
-		This route will take a the student id as the 
-		request param.Then it will use the student model 
-		to query the database for a single college of that 
-		id using the findOne method. It will find one college 
-		where the id matches.Once the result is found then the 
-		destroy method can be used to delete the row.If this operation 
+		This route will take a the student id as the
+		request param.Then it will use the student model
+		to query the database for a single college of that
+		id using the findOne method. It will find one college
+		where the id matches.Once the result is found then the
+		destroy method can be used to delete the row.If this operation
 		is successfull then a 200 reponse and success message is sent back.
 		Otherwise a 400 response and a failure message is sent back.
 */
@@ -137,7 +137,7 @@ module.exports = function(app,College,Student) {
 					.catch((err)=>{
 						console.log(err)
 						res.status(400).send(err);
-					});	
+					});
 		});
-	
+
 }
