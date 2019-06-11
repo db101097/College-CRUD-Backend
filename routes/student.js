@@ -77,12 +77,13 @@ module.exports = function(app,College,Student) {
 
 		app.post('/addStudents',(req,res) => {
 				let args=req.body;
+				console.log(args.collegeId);
 				Student.create({firstname:args.firstName,
 								 lastname:args.lastName,
 								 image_path:args.url,
 								 email:args.email,
 								 gpa:args.gpa,
-								 collegeId:args.collegeId})
+								 collegeid:args.collegeId})
 					.then((result)=>{
 						res.status(200).send('Successfully created')
 					})
