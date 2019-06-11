@@ -1,5 +1,23 @@
 module.exports = function(app,College,Student) {
 
+
+/*
+		This route will take no query string params it will
+		simply return all the students in the database
+		currently.The response is an array of all the college objects.
+*/
+		app.get('/getAllStudents', (req, res) => {
+				Student.findAll({})
+					.then((results)=>{
+						console.log(results);
+						res.status(200).send(results);
+					})
+					.catch((err)=>{
+						console.log(err)
+						res.status(400).send(err);
+					});
+		});
+
 /*
 		This route will take a the student id as the
 		request param. Then it will use the student
@@ -79,10 +97,12 @@ module.exports = function(app,College,Student) {
 		request param.It will also take a JSON body consisting of
 
 		{
-			newName:'The updated name of the college'
-			newImage:'The updated image in bytecode'
-			newAddress:'The updated address of the college'
-			newDescription:'A updated description of the college'
+			firstname:'The updated name of the college'
+			lastname:'The updated image in bytecode'
+			image:'The updated address of the college'
+			email:'A updated description of the college'
+			gpa:'the student's gpa'
+			collegeId:'the id of the college the student attends
 		}
 
 		Then it will use the student model to query the database
