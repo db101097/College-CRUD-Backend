@@ -83,7 +83,7 @@ module.exports = function(app,College,Student) {
 								 image_path:args.url,
 								 email:args.email,
 								 gpa:args.gpa,
-								 collegeid:args.collegeId})
+								 collegeId:args.collegeID})
 					.then((result)=>{
 						res.status(200).send('Successfully created')
 					})
@@ -126,7 +126,7 @@ module.exports = function(app,College,Student) {
 							image_path:args.image,
 							email:args.email,
 							gpa:args.gpa,
-							collegeId:args.collegeId
+							collegeId:args.collegeID
 						});
 
 						res.status(200).send('Successfully updated');

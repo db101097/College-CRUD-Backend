@@ -125,7 +125,7 @@ module.exports = function(app,College,Student) {
 						results.update({
 							name:args.newName,
 							image_path:args.newImage,
-							address:args.newAddess,
+							address:args.newAddress,
 							description:args.newDescription
 						})
 						res.status(200).send(results);
