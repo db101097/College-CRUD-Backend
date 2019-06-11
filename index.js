@@ -51,10 +51,10 @@ College.init({
 		allowNull:false
 	},
 
-    population: {
+  population: {
 		type:Sequelize.INTEGER,
 		allowNull:false
-  	}
+  }
 
 },
 	{sequelize,modelName: 'college',timestamps: false}

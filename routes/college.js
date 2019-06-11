@@ -148,7 +148,6 @@ module.exports = function(app,College,Student) {
 		Otherwise a 400 response and a failure message is sent back.
 */
 		app.delete('/college/:collegeID',(req,res) => {
-				let args=req.body;
 				let id=req.params.collegeID;
 				College.findOne({where:{id:id}})
 					.then((results)=>{
