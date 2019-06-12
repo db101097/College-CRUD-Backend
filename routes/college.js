@@ -6,9 +6,8 @@ module.exports = function(app,College,Student) {
 		currently.The response is an array of all the college objects.
 */
 		app.get('/getAllColleges', (req, res) => {
-				College.findAll({})
+				College.findAll({include:[Student]})
 					.then((results)=>{
-						console.log(results);
 						res.status(200).send(results);
 					})
 					.catch((err)=>{
