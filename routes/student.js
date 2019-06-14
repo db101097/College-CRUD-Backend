@@ -46,11 +46,17 @@ module.exports = function(app,College,Student) {
 		}
 */
 		app.get('/students/:studentID', (req,res) => {
-				console.log('here');
 				Student.findOne({where:{id:req.params.studentID},
 								 include:[College]})
 					.then((results)=>{
-						console.log(results);
+						console.log(results['dataValues']);
+						if(results.college==null || results.college==undefined){
+							console.log('here')
+							results['dataValues']['attendingCampus']=false;
+						}
+						else{
+							results['dataValues']['attendingCampus']=true;
+						}
 						res.status(200).send(results);
 					})
 					.catch((err)=>{
